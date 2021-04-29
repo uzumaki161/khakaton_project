@@ -1,11 +1,8 @@
 import streamlit as st
-import altair as alt
 import pandas as pd
 import datashader as ds
 import datashader.transfer_functions as tf
-from colorcet import fire, kbc, bmw, gray
 import plotly.express as px
-import plotly.graph_objs as go
 import pickle
 import numpy as np
 import pydeck as pdk
