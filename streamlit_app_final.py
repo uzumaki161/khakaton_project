@@ -24,7 +24,6 @@ from natasha import (
     ORG,
     NamesExtractor,
     DatesExtractor,
-    MoneyExtractor,
     AddrExtractor,
 
     Doc
@@ -278,7 +277,6 @@ def main():
                         [0.71111111, "yellow"],
                         [0.71111112, "red"],
                         [1, "red"]]
-        img = tf.shade(aggs, cmap=kbc, how='eq_hist', alpha=255)[::-1].to_pil()
         
         calculation = st.multiselect("Категория:", ("Изготовление, хранение, перевозка или сбыт поддельных денег или ценных бумаг","Убийства",
                                                     "Незаконный оборот наркотических средств",
