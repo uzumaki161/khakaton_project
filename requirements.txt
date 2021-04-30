@@ -9,3 +9,4 @@ requests
 bokeh
 streamlit_bokeh_events
 natasha
+xlrd
