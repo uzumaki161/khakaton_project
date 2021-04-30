@@ -1,0 +1,13 @@
+streamlit
+pandas
+datashader
+datashader.transfer_functions
+plotly.express
+pickle
+numpy
+pydeck
+requests
+bokeh.models.widgets
+bokeh.models
+from streamlit_bokeh_events import streamlit_bokeh_events
+from natasha import
