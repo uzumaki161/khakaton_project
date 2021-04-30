@@ -2,7 +2,7 @@ streamlit
 pandas
 datashader
 plotly.express
-pickle
+pickleshare
 numpy
 pydeck
 requests
