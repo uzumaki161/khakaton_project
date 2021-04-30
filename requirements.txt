@@ -9,5 +9,5 @@ pydeck
 requests
 bokeh.models.widgets
 bokeh.models
-from streamlit_bokeh_events import streamlit_bokeh_events
-from natasha import
+streamlit_bokeh_events
+natasha
