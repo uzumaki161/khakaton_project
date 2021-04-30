@@ -7,6 +7,5 @@ numpy
 pydeck
 requests
 bokeh
-bokeh.models
 streamlit_bokeh_events
 natasha
