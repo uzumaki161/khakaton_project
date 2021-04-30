@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import datashader as ds
-import datashader.transfer_functions as tf
 import plotly.express as px
 import pickle
 import numpy as np
