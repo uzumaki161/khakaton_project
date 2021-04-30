@@ -1,7 +1,6 @@
 streamlit
 pandas
 datashader
-datashader.transfer_functions
 plotly.express
 pickle
 numpy
