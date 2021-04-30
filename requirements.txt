@@ -6,7 +6,7 @@ pickleshare
 numpy
 pydeck
 requests
-bokeh.models.widgets
+bokeh
 bokeh.models
 streamlit_bokeh_events
 natasha
