@@ -50,7 +50,7 @@ def main():
         df = pd.read_excel("dd.xlsx")
 
         #Распознавание речи
-        stt_button = Button(label="Голосовой ввод сообщения", width=688,button_type="primary")
+        stt_button = Button(label="Голосовой ввод сообщения о происшествии", width=688,button_type="primary")
 
         stt_button.js_on_event("button_click", CustomJS(code="""
             var recognition = new webkitSpeechRecognition();
