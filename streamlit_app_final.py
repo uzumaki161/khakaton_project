@@ -50,7 +50,7 @@ def main():
         df = pd.read_excel("dd.xlsx")
 
         #Распознавание речи
-        stt_button = Button(label="Голосовой ввод сообщения о происшествии", width=688,button_type="primary")
+        stt_button = Button(label="Голосовой ввод сообщения", width=150,button_type="primary")
 
         stt_button.js_on_event("button_click", CustomJS(code="""
             var recognition = new webkitSpeechRecognition();
@@ -76,7 +76,7 @@ def main():
             events="GET_TEXT",
             key="listen",
             refresh_on_update=True,
-            override_height=40,
+            override_height=45,
             debounce_time=0)
 
         speech_text = ''
@@ -282,8 +282,8 @@ def main():
                                                     "Мошенничество",
                                                     "Разбой",
                                                     "Умышленное причинение средней тяжест вреда здоровью",
-                                                    "Грабеж",''),index=7)
-        year = st.selectbox("Год:",('2016','2017','2018','2019',''),index=4)
+                                                    "Грабеж"))
+        year = st.selectbox("Год:",('2016','2017','2018','2019'))
 
 
         if 'Изготовление, хранение, перевозка или сбыт поддельных денег или ценных бумаг' in calculation:
@@ -291,30 +291,14 @@ def main():
             dff = df[['Период','Категория', 'latitude', 'longitude']]
             dff = dff[dff['Категория'].isin(['поддел.бумаги'])]
             dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2016' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['поддел.бумаги'])]
-                dff = dff[dff['Год'].isin(['2016'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2017' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['поддел.бумаги'])]
-                dff = dff[dff['Год'].isin(['2017'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2018' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['поддел.бумаги'])]
-                dff = dff[dff['Год'].isin(['2018'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2019' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['поддел.бумаги'])]
-                dff = dff[dff['Год'].isin(['2019'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
+
+            col = [
+                        [0.0, "blue"],
+                        [0.5, "blue"],
+                        [0.51111111, "yellow"],
+                        [0.71111111, "red"],
+                        [0.71111112, "blue"],
+                        [1, "blue"]]
 
 
         if 'Убийства' in calculation:
@@ -322,60 +306,12 @@ def main():
             dff = df[['Период','Категория', 'latitude', 'longitude']]
             dff = dff[dff['Категория'].isin(['Убийства'])]
             dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2016' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['Убийства'])]
-                dff = dff[dff['Год'].isin(['2016'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2017' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['Убийства'])]
-                dff = dff[dff['Год'].isin(['2017'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2018' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['Убийства'])]
-                dff = dff[dff['Год'].isin(['2018'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2019' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['Убийства'])]
-                dff = dff[dff['Год'].isin(['2019'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
 
         if 'Незаконный оборот наркотических средств' in calculation:
             df = pd.read_excel("dd.xlsx")
             dff = df[['Период','Категория', 'latitude', 'longitude']]
             dff = dff[dff['Категория'].isin(['Наркотики'])]
             dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2016' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['Наркотики'])]
-                dff = dff[dff['Год'].isin(['2016'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2017' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['Наркотики'])]
-                dff = dff[dff['Год'].isin(['2017'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2018' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['Наркотики'])]
-                dff = dff[dff['Год'].isin(['2018'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2019' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['Наркотики'])]
-                dff = dff[dff['Год'].isin(['2019'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
 
 
         if 'Разбой' in calculation :
@@ -395,132 +331,48 @@ def main():
                 dff = dff[dff['Категория'].isin(['Разбой'])]
                 dff = dff[dff['Год'].isin(['2017'])]
                 dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2018' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['Разбой'])]
-                dff = dff[dff['Год'].isin(['2018'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2019' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['Разбой'])]
-                dff = dff[dff['Год'].isin(['2019'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-
-
 
         if 'Умышленное причинение средней тяжест вреда здоровью' in calculation:
             df = pd.read_excel("dd.xlsx")
             dff = df[['Период','Категория', 'latitude', 'longitude']]
             dff = dff[dff['Категория'].isin(['ум. прич. ср.тяж. вреда зд.'])]
             dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2016' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['ум. прич. ср.тяж. вреда зд.'])]
-                dff = dff[dff['Год'].isin(['2016'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2017' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['ум. прич. ср.тяж. вреда зд.'])]
-                dff = dff[dff['Год'].isin(['2017'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2018' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['ум. прич. ср.тяж. вреда зд.'])]
-                dff = dff[dff['Год'].isin(['2018'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2019' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['ум. прич. ср.тяж. вреда зд.'])]
-                dff = dff[dff['Год'].isin(['2019'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
 
         if 'Мошенничество' in calculation:
             df = pd.read_excel("dd.xlsx")
             dff = df[['Период','Категория', 'latitude', 'longitude']]
             dff = dff[dff['Категория'].isin(['Мошенничество'])]
             dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2016' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['Мошенничество'])]
-                dff = dff[dff['Год'].isin(['2016'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2017' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['Мошенничество'])]
-                dff = dff[dff['Год'].isin(['2017'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2018' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['Мошенничество'])]
-                dff = dff[dff['Год'].isin(['2018'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2019' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['Мошенничество'])]
-                dff = dff[dff['Год'].isin(['2019'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
+            col = px.colors.sequential.Peach
 
         if 'Грабеж' in calculation:
             df = pd.read_excel("dd.xlsx")
             dff = df[['Период','Категория', 'latitude', 'longitude']]
             dff = dff[dff['Категория'].isin(['Грабеж'])]
             dff.dropna(subset=['latitude', 'longitude'], inplace=True)
+
             if '2016' in year:
                 df = pd.read_excel("dd.xlsx")
                 dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
                 dff = dff[dff['Категория'].isin(['Грабеж'])]
                 dff = dff[dff['Год'].isin(['2016'])]
                 dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2017' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['Грабеж'])]
-                dff = dff[dff['Год'].isin(['2017'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2018' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['Грабеж'])]
-                dff = dff[dff['Год'].isin(['2018'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-            if '2019' in year:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Категория'].isin(['Грабеж'])]
-                dff = dff[dff['Год'].isin(['2019'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-
 
 
         if '2016'  in year:
-            if '' in calculation:
-                df = pd.read_excel("dd.xlsx")
-                dff = df[['Год','Период','Категория', 'latitude', 'longitude']]
-                dff = dff[dff['Год'].isin(['2019'])]
-                dff.dropna(subset=['latitude', 'longitude'], inplace=True)
-                fig = px.density_mapbox(dff, lat='latitude', lon='longitude', radius=25,animation_frame=("Период"),
-                         color_continuous_scale= col,
-                                    opacity = 0.9
-                                    )
-                fig.update_layout(mapbox_style="open-street-map")
-                fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0},
-                                  mapbox=dict(
-                                      pitch=60,
-                                      bearing=30
-                                  ))
-                fig.update_layout(coloraxis_showscale=False)
+            fig = px.density_mapbox(dff, lat='latitude', lon='longitude', radius=25,animation_frame=("Период"),
+                     color_continuous_scale= col,
+                                opacity = 0.9
+                                )
+            fig.update_layout(mapbox_style="open-street-map")
+            fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0},
+                              mapbox=dict(
+                                  pitch=60,
+                                  bearing=30
+                              ))
+            fig.update_layout(coloraxis_showscale=False)
 
-                st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, use_container_width=True)
         elif '2017'  in year:
              fig = px.density_mapbox(dff, lat='latitude', lon='longitude', radius=25,animation_frame=("Период"),animation_group="Период",
                      color_continuous_scale= col,
@@ -535,49 +387,6 @@ def main():
              fig.update_layout(coloraxis_showscale=False)
 
              st.plotly_chart(fig, use_container_width=True)
-        elif '2018'  in year:
-             fig = px.density_mapbox(dff, lat='latitude', lon='longitude', radius=25,animation_frame=("Период"),animation_group="Период",
-                     color_continuous_scale= col,
-                                opacity = 0.9
-                                )
-             fig.update_layout(mapbox_style="open-street-map")
-             fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0},
-                              mapbox=dict(
-                                  pitch=60,
-                                  bearing=30
-                              ))
-             fig.update_layout(coloraxis_showscale=False)
-
-             st.plotly_chart(fig, use_container_width=True)
-        elif '2019'  in year:
-             fig = px.density_mapbox(dff, lat='latitude', lon='longitude', radius=25,animation_frame=("Период"),animation_group="Период",
-                     color_continuous_scale= col,
-                                opacity = 0.9
-                                )
-             fig.update_layout(mapbox_style="open-street-map")
-             fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0},
-                              mapbox=dict(
-                                  pitch=60,
-                                  bearing=30
-                              ))
-             fig.update_layout(coloraxis_showscale=False)
-
-             st.plotly_chart(fig, use_container_width=True)
-        elif '' in calculation:
-            if '' in year:
-                fig = px.density_mapbox(dff, lat='latitude', lon='longitude', radius=8,
-                     color_continuous_scale= col,
-                                opacity = 0.1
-                                )
-            fig.update_layout(mapbox_style="open-street-map")
-            fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0},
-                              mapbox=dict(
-                                  pitch=60,
-                                  bearing=30
-                              ))
-            fig.update_layout(coloraxis_showscale=False)
-
-            st.plotly_chart(fig, use_container_width=True)
         else:
             fig = px.density_mapbox(dff, lat='latitude', lon='longitude', radius=25,animation_group="Период",
                      color_continuous_scale= col,
@@ -597,3 +406,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+#комментарий1
+#комментарий2
